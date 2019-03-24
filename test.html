@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <input type="text" class="user-input" placeholder="type you her">
+
+  <button class="user-btn">click me</button>
+
+  <p class="user-text">replac me here!!</p>
+  <p class="user-text">replac me here!!</p>
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <script>
+    $('.btn').click(function() {
+      $('.text').text('loading....');
+      $.ajax({
+        type: "GET",
+        url: "http/api.metup.com",
+        success: function(data) {
+          $('.text').text(JSON.stringify(data));
+        },
+        dataType: 'jsonp',
+      });
+    });
+  </script>
+</body>
+</html>
